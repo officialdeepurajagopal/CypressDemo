@@ -1,13 +1,12 @@
+import data from '../../../data/data.js'
+import loginPage from '../../../pages/loginPage.js'
+import commonPage from '../../../pages/common.js'
+
 describe('Validate User', () =>{
     it('Navigate to Page', () =>{
-        cy.visit('https://dashboard.podop.com');
-        let title = cy.title();
-        console.log(title);
+        commonPage.navigateToPage(data.data.url);
     })
     it('Valid Login', () =>{
-        cy.get('input[name="user"]').type('deepu@podop.com');
-        cy.get('input[name="password"]').type('podop123');
-        cy.contains('button', 'Log In').click();
-        cy.contains('deepu@podop.com');
+        loginPage.validLogin(data.data.username, data.data.password);
     })
 })
